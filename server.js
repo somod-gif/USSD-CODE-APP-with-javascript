@@ -11,12 +11,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // GET route (for test)
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.send("USSD app using JavaScript and Africa's Talking API");
 });
 
 // POST route (for USSD callback)
-app.post('/ussd', (req, res) => {
+app.post('*', (req, res) => {
   const { sessionId, serviceCode, phoneNumber, text } = req.body;
   let response = '';
 
